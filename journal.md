@@ -28,11 +28,11 @@ Normalized data of 0.5AVGFPS+0.5PE | NFPSPE | Continuous (Decimal) | [0,1]
 
 ### Side Research Questions
 4. Which technical variables (`AA`/`AG`/`AP`) settings do most participants prefer?
-5. Does the Score (`SCORE`) depend on Comfort (`CR`)?
-6. Does the Gaming Interest and Experience Rating (`GAMING`) truly reflect on the variability in all the rating variables (`AR`, `GR`, `PR`, `ER`, `CR`, `OR`)?  
+5. Does Score (`SCORE`) depend on Comfort (`CR`)?
+6. Does Gaming Interest and Experience Rating (`GAMING`) truly reflect on the variability in all the rating variables (`AR`, `GR`, `PR`, `ER`, `CR`, `OR`)?  
 
 
 #
 #### Notes
-- `dec_tree.R` and `dec_tree_N.R` files are created for answering question 1
-- `dataset - 17Mar24.csv` contains the latest dataset, as of 17Mar24 @ 11:05am
+- `dec_tree.R` and `dec_tree_N.R` files are created for answering question 1.
+- `dataset - 17Mar24.csv` contains the latest dataset, as of 17Mar24 @ 11:05am.
