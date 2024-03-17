@@ -24,7 +24,7 @@ Normalized data of 0.5AVGFPS+0.5PE | NFPSPE | Continuous (Decimal) | [0,1]
 ### Main Research Questions
 1. Which of the technical variables (`AA`/`AG`/`AP`) have the most influence on AVGFPS?
 2. Which of the technical variables (`AA`/`AG`/`AP`) have the most influence on PE?
-3. What is the optimal combination of the technical variables (`AA`/`AG`/`AP`) to achieve optimal `AVGFPS+PE`?
+3. What is the optimal combination of the technical variables (`AA`/`AG`/`AP`) to achieve optimal `NFPSPE`?
 
 ### Side Research Questions
 4. Which technical variables (`AA`/`AG`/`AP`) settings do most participants prefer?
