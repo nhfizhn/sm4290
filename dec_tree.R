@@ -1,3 +1,6 @@
+install.packages("caret")
+install.packages("rpart.plot")
+
 # Step 1: Load and preprocess the dataset
 data <- read.csv("pilot dataset - dataset (1).csv")
 
