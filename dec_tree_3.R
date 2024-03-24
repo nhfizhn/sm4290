@@ -40,6 +40,7 @@ print("R-squared:")
 print(rsquared_q3)
 
 # Step 7: Plot the decision tree
+library(rpart.plot)
 rpart.plot(model_q3, fallen.leaves = FALSE, main = "Decision Tree for NFPSPE Prediction")
 
 # Step 8: Interpretation (optional)

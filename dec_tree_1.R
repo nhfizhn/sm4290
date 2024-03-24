@@ -4,7 +4,7 @@
 # install.packages("caret")
 # install.packages("rpart.plot")
 
-# Step 1: Load and preprocess the dataset
+# Step 1: Load and preprocess the data set
 data_q1 <- read.csv("dataset - 17Mar24.csv")
 
 # Step 2: Define feature and target variables
@@ -19,8 +19,8 @@ model_q1 <- rpart(AVGFPS ~ ., data = data_q1[, c(features_q1, target_q1)], metho
 library(caret)
 set.seed(321)
 trainIndex_q1 <- createDataPartition(data_q1$AVGFPS, p = 0.7, list = FALSE)
-training_q1 <- data[trainIndex_q1, ]
-testing_q1 <- data[-trainIndex_q1, ]
+training_q1 <- data_q1[trainIndex_q1, ]
+testing_q1 <- data_q1[-trainIndex_q1, ]
 
 # Step 5: Train the decision tree model
 model_q1 <- rpart(AVGFPS ~ ., data = training_q1[, c(features_q1, target_q1)], method = "anova")
@@ -71,7 +71,7 @@ par(mfrow = c(1,2))
 plot(comparison_q1$Actual, type = "l", col = "blue",
      ylim = range(c(comparison_q1$Predicted, comparison_q1$Actual)),
      xlab = "Observation", ylab = "PE", main = "Predicted vs. Actual AVGFPS")
-lines(comparison_q2$Predicted, col = "red")
+lines(comparison_q1$Predicted, col = "red")
 legend("bottom", legend = c("Actual", "Predicted"), col = c("blue", "red"), lty = 1)
 grid()
 

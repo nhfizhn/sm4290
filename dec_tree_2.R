@@ -19,8 +19,8 @@ model_q2 <- rpart(PE ~ ., data = data_q2[, c(features_q2, target_q2)], method = 
 library(caret)
 set.seed(321)
 trainIndex_q2 <- createDataPartition(data_q2$PE, p = 0.7, list = FALSE)
-training_q2 <- data[trainIndex_q2, ]
-testing_q2 <- data[-trainIndex_q2, ]
+training_q2 <- data_q2[trainIndex_q2, ]
+testing_q2 <- data_q2[-trainIndex_q2, ]
 
 # Step 5: Train the decision tree model
 model_q2 <- rpart(PE ~ ., data = training_q2[, c(features_q2, target_q2)], method = "anova")
