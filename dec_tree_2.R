@@ -4,8 +4,8 @@
 # install.packages("caret")
 # install.packages("rpart.plot")
 
-# Step 1: Load and preprocess the dataset
-data_q2 <- read.csv("dataset - 17Mar24.csv")
+# Step 1: Load and preprocess the data set
+data_q2 <- read.csv("dataset_for_q2.csv")
 
 # Step 2: Define feature and target variables
 features_q2 <- c("AA", "AG", "AP")
@@ -36,8 +36,8 @@ print("RMSE (Accuracy):")
 print(accuracy_q2)
 
 # Additional evaluation metrics (e.g., R-squared)
-rsquared_q2 <- 1 - (sum((testing_q2$PE - predictions_q2)^2) 
-                    / sum((testing_q2$PE - mean(testing_q2$PE))^2))
+rsquared_q2 <- 1 - (sum((testing_q2$PE - predictions_q2)^2) /
+                    sum((testing_q2$PE - mean(testing_q2$PE))^2))
 print("R-squared:")
 print(rsquared_q2)
 
@@ -51,7 +51,8 @@ print(sqrt(model_cv_q2$results$RMSE))
 # Step 7: Plot the decision tree
 library(rpart.plot)
 par(mfrow = c(1,1))
-rpart.plot(model_q2, fallen.leaves = FALSE, main = "Decision Tree for PE Prediction")
+rpart.plot(model_q2, digits = 3, roundint = FALSE, fallen.leaves = TRUE, 
+           main = "Decision Tree for PE Prediction")
 
 # Step 8: Interpretation (optional)
 print("Interpretation")
@@ -60,24 +61,23 @@ print(model_q2)
 print("Variable Importance Analysis:")
 print(varImp(model_q2))
 
-# Extract actual values from the testing dataset
+# Extract actual values from the testing data set
 actual_q2 <- testing_q2$PE
 
-# Create a dataframe with both predicted and actual values
+# Create a data frame with both predicted and actual values
 comparison_q2 <- data.frame(Predicted = predictions_q2, Actual = actual_q2)
 
 # Step 9: Plot predicted vs. actual values
-par(mfrow = c(1,2))
-plot(comparison_q2$Actual, type = "l", col = "blue",
-     ylim = range(c(comparison_q2$Predicted, comparison_q2$Actual)),
-     xlab = "Observation", ylab = "PE", main = "Predicted vs. Actual PE")
-lines(comparison_q2$Predicted, col = "red")
-legend("bottom", legend = c("Actual", "Predicted"), col = c("blue", "red"), lty = 1)
-grid()
+#par(mfrow = c(1,2))
+#plot(comparison_q2$Actual, type = "l", col = "blue",
+#     ylim = range(c(comparison_q2$Predicted, comparison_q2$Actual)),
+#     xlab = "Observation", ylab = "PE", main = "Predicted vs. Actual PE")
+#lines(comparison_q2$Predicted, col = "red")
+#legend(x = 25, y =  2.2, legend = c("Actual", "Predicted"), col = c("blue", "red"), lty = 1)
 
 # Step 10: Plot residuals
-residuals_q2 <- comparison_q2$Actual - comparison_q2$Predicted
-plot(residuals_q2, type = "p", col = "green", 
-     xlab = "Observation", ylab = "Residuals", main = "Residuals Plot")
-abline(h = 0, col = "red")
-grid()
+#residuals_q2 <- comparison_q2$Actual - comparison_q2$Predicted
+#plot(residuals_q2, type = "p", col = "green", 
+#     xlab = "Observation", ylab = "Residuals", main = "Residuals Plot")
+#abline(h = 0, col = "red")
+#grid()
