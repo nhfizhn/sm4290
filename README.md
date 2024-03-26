@@ -35,4 +35,7 @@ Normalized data of 0.5AVGFPS+0.5PE | NFPSPE | Continuous (Decimal) | [0,1]
 #
 #### Notes
 - `dec_tree.R` and `dec_tree_N.R` files are created for answering question 1.
-- `dataset - 17Mar24.csv` contains the latest dataset, as of 17Mar24 @ 11:05am.
+- `dataset - 17Mar24.csv` contains the latest data set, as of 17Mar24 @ 11:05am.
+
+#
+**Findings**

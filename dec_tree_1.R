@@ -1,4 +1,4 @@
-# Q2: Which of the technical variables (AA/AG/AP) have the most influence on PE?
+# Q1: Which of the technical variables (AA/AG/AP) have the most influence on AVGFPS?
 
 # Step 0: Install necessary packages
 # install.packages("caret")
@@ -81,3 +81,6 @@ comparison_q1 <- data.frame(Predicted = predictions_q1, Actual = actual_q1)
 #     xlab = "Observation", ylab = "Residuals", main = "Residuals Plot")
 #abline(h = 0, col = "red")
 #grid()
+
+
+# the % in the nodes represent the percentage of observations (n=455)
