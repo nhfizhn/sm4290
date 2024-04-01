@@ -6,42 +6,42 @@
 # install.packages("rpart.plot")
 
 # Step 1: Load and preprocess the dataset
-data_q3 <- read.csv("dataset - 17Mar24.csv")
+data_q3 <- read.csv("final_dataset.csv")
 
 # Step 2: Define feature and target variables
 features_q3 <- c("NAA", "NAG", "NAP")
-target_q3 <- "NFPSPE"
+target_q3 <- "NAVGFPSPE"
 
 # Step 3: Build decision tree model
-model_q3 <- rpart(NFPSPE ~ ., data = data_q3[, c(features_q3, target_q3)], method = "anova")
+model_q3 <- rpart(NAVGFPSPE ~ ., data = data_q3[, c(features_q3, target_q3)], method = "anova")
 
 # Step 4: Split data set into training and testing sets
 set.seed(123)  # For reproducibility
-trainIndex_q3 <- createDataPartition(data_q3$NFPSPE, p = 0.7, list = FALSE)
+trainIndex_q3 <- createDataPartition(data_q3$NAVGFPSPE, p = 0.7, list = FALSE)
 training_q3 <- data_q3[trainIndex_q3, ]
 testing_q3 <- data_q3[-trainIndex_q3, ]
 
 # Step 5: Train the decision tree model
-model_q3 <- rpart(NFPSPE ~ ., data = training_q3[, c(features_q3, target_q3)], method = "anova")
+model_q3 <- rpart(NAVGFPSPE ~ ., data = training_q3[, c(features_q3, target_q3)], method = "anova")
 
 # Step 6: Model assessment
 predictions_q3 <- predict(model_q3, testing_q3[, features_q3])
 
 # Calculate evaluation metrics
-accuracy_q3 <- sqrt(mean((predictions_q3 - testing_q3$NFPSPE)^2))
+accuracy_q3 <- sqrt(mean((predictions_q3 - testing_q3$NAVGFPSPE)^2))
 print("Evaluation of Model Performance")
 print("RMSE (Accuracy):")
 print(accuracy_q3)
 
 # Additional evaluation metrics (e.g., R-squared)
-rsquared_q3 <- 1 - (sum((testing_q3$NFPSPE - predictions_q3)^2) 
-                    / sum((testing_q3$NFPSPE - mean(testing_q3$NFPSPE))^2))
+rsquared_q3 <- 1 - (sum((testing_q3$NAVGFPSPE - predictions_q3)^2) 
+                    / sum((testing_q3$NAVGFPSPE - mean(testing_q3$NAVGFPSPE))^2))
 print("R-squared:")
 print(rsquared_q3)
 
 # Step 7: Plot the decision tree
 library(rpart.plot)
-rpart.plot(model_q3, fallen.leaves = FALSE, main = "Decision Tree for NFPSPE Prediction")
+rpart.plot(model_q3, main = "Decision Tree for NAVGFPSPE Prediction")
 
 # Step 8: Interpretation (optional)
 print("Interpretation")
@@ -52,11 +52,11 @@ print(varImp(model_q3))
 
 # Step 9: Plot predicted vs. actual values
 par(mfrow = c(1,2))
-actual_q3 <- testing_q3$NFPSPE
+actual_q3 <- testing_q3$NAVGFPSPE
 comparison_q3 <- data.frame(Predicted = predictions_q3, Actual = actual_q3)
 plot(comparison_q3$Actual, type = "l", col = "blue",
      ylim = range(c(comparison_q3$Predicted, comparison_q3$Actual)),
-     xlab = "Observation", ylab = "NFPSPE", main = "Predicted vs. Actual NFPSPE")
+     xlab = "Observation", ylab = "NAVGFPSPE", main = "Predicted vs. Actual NAVGFPSPE")
 lines(comparison_q3$Predicted, col = "red")
 legend("bottom", legend = c("Actual", "Predicted"), col = c("blue", "red"), lty = 1)
 grid()
