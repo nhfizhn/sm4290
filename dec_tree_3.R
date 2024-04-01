@@ -27,17 +27,24 @@ model_q3 <- rpart(NAVGFPSPE ~ ., data = training_q3[, c(features_q3, target_q3)]
 # Step 6: Model assessment
 predictions_q3 <- predict(model_q3, testing_q3[, features_q3])
 
-# Calculate evaluation metrics
+# Calculate evaluation metrics (RMSE)
 accuracy_q3 <- sqrt(mean((predictions_q3 - testing_q3$NAVGFPSPE)^2))
 print("Evaluation of Model Performance")
 print("RMSE (Accuracy):")
 print(accuracy_q3)
 
-# Additional evaluation metrics (e.g., R-squared)
+# Additional evaluation metrics (R-squared)
 rsquared_q3 <- 1 - (sum((testing_q3$NAVGFPSPE - predictions_q3)^2) 
                     / sum((testing_q3$NAVGFPSPE - mean(testing_q3$NAVGFPSPE))^2))
 print("R-squared:")
 print(rsquared_q3)
+
+# Cross-validation
+cv_q3 <- trainControl(method = "cv", number = 10)  # 10-fold cross-validation
+model_cv_q3 <- train(NAVGFPSPE ~ ., data = data_q3[, c(features_q3, target_q3)], 
+                     method = "rpart", trControl = cv_q3)
+print("Cross-validated RMSE:")
+print(sqrt(model_cv_q3$results$RMSE))
 
 # Step 7: Plot the decision tree
 library(rpart.plot)

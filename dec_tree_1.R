@@ -29,19 +29,19 @@ model_q1 <- rpart(AVGFPS ~ ., data = training_q1[, c(features_q1, target_q1)], m
 # Calculate predictions on the testing data
 predictions_q1 <- predict(model_q1, testing_q1[, features_q1])
 
-# Calculate evaluation metrics (e.g., RMSE)
+# Calculate evaluation metrics (RMSE)
 accuracy_q1 <- sqrt(mean((predictions_q1 - testing_q1$AVGFPS)^2))
 print("Evaluation of Model Performance")
 print("RMSE (Accuracy):")
 print(accuracy_q1)
 
-# Additional evaluation metrics (e.g., R-squared)
+# Additional evaluation metrics (R-squared)
 rsquared_q1 <- 1 - (sum((testing_q1$AVGFPS - predictions_q1)^2) / 
                     sum((testing_q1$AVGFPS - mean(testing_q1$AVGFPS))^2))
 print("R-squared:")
 print(rsquared_q1)
 
-# Cross-validation (optional)
+# Cross-validation
 cv_q1 <- trainControl(method = "cv", number = 10)  # 10-fold cross-validation
 model_cv_q1 <- train(AVGFPS ~ ., data = data_q1[, c(features_q1, target_q1)], 
                      method = "rpart", trControl = cv_q1)
@@ -68,19 +68,16 @@ actual_q1 <- testing_q1$AVGFPS
 comparison_q1 <- data.frame(Predicted = predictions_q1, Actual = actual_q1)
 
 # Step 9: Plot predicted vs. actual values
-#par(mfrow = c(1,2))
-#plot(comparison_q1$Actual, type = "l", col = "blue",
-#     ylim = range(c(comparison_q1$Predicted, comparison_q1$Actual)),
-#     xlab = "Observation", ylab = "PE", main = "Predicted vs. Actual AVGFPS")
-#lines(comparison_q1$Predicted, col = "red")
-#legend(x = 100, y = 35, legend = c("Actual", "Predicted"), col = c("blue", "red"), lty = 1)
+par(mfrow = c(1,2))
+plot(comparison_q1$Actual, type = "l", col = "blue",
+     ylim = range(c(comparison_q1$Predicted, comparison_q1$Actual)),
+     xlab = "Observation", ylab = "PE", main = "Predicted vs. Actual AVGFPS")
+lines(comparison_q1$Predicted, col = "red")
+legend(x = 7, y = 37, legend = c("Actual", "Predicted"), col = c("blue", "red"), lty = 1)
 
 # Step 10: Plot residuals
-#residuals_q1 <- comparison_q1$Actual - comparison_q1$Predicted
-#plot(residuals_q1, type = "p", col = "green", 
-#     xlab = "Observation", ylab = "Residuals", main = "Residuals Plot")
-#abline(h = 0, col = "red")
-#grid()
-
-
-# the % in the nodes represent the percentage of observations (n=455)
+residuals_q1 <- comparison_q1$Actual - comparison_q1$Predicted
+plot(residuals_q1, type = "p", col = "blue", 
+     xlab = "Observation", ylab = "Residuals", main = "Residuals Plot")
+abline(h = 0, col = "red")
+grid()

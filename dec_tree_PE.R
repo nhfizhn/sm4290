@@ -22,6 +22,30 @@ testing_PE <- data_PE[-trainIndex_PE, ]
 # Step 5: Train the decision tree model
 model_PE <- rpart(SCORE ~ ., data = training_PE[, c(features_PE, target_PE)], method = "anova")
 
+
+# Model assessment
+# Calculate predictions on the testing data
+predictions_PE <- predict(model_PE, testing_PE[, features_PE])
+
+# Calculate evaluation metrics (RMSE)
+accuracy_PE <- sqrt(mean((predictions_PE - testing_PE$SCORE)^2))
+print("Evaluation of Model Performance")
+print("RMSE (Accuracy):")
+print(accuracy_PE)
+
+# Additional evaluation metrics (R-squared)
+rsquared_PE <- 1 - (sum((testing_PE$SCORE - predictions_PE)^2) / 
+                      sum((testing_PE$SCORE - mean(testing_PE$SCORE))^2))
+print("R-squared:")
+print(rsquared_PE)
+
+# Cross-validation
+cv_PE <- trainControl(method = "cv", number = 10)  # 10-fold cross-validation
+model_cv_PE <- train(SCORE ~ ., data = data_PE[, c(features_PE, target_PE)], 
+                     method = "rpart", trControl = cv_PE)
+print("Cross-validated RMSE:")
+print(sqrt(model_cv_PE$results$RMSE))
+
 # Step 6: Interpretation
 print("Variable Importance Analysis:")
 var_imp <- varImp(model_PE)

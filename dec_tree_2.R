@@ -29,19 +29,19 @@ model_q2 <- rpart(PE ~ ., data = training_q2[, c(features_q2, target_q2)], metho
 # Calculate predictions on the testing data
 predictions_q2 <- predict(model_q2, testing_q2[, features_q2])
 
-# Calculate evaluation metrics (e.g., RMSE)
+# Calculate evaluation metrics (RMSE)
 accuracy_q2 <- sqrt(mean((predictions_q2 - testing_q2$PE)^2))
 print("Evaluation of Model Performance")
 print("RMSE (Accuracy):")
 print(accuracy_q2)
 
-# Additional evaluation metrics (e.g., R-squared)
+# Additional evaluation metrics (R-squared)
 rsquared_q2 <- 1 - (sum((testing_q2$PE - predictions_q2)^2) /
                     sum((testing_q2$PE - mean(testing_q2$PE))^2))
 print("R-squared:")
 print(rsquared_q2)
 
-# Cross-validation (optional)
+# Cross-validation
 cv_q2 <- trainControl(method = "cv", number = 10)  # 10-fold cross-validation
 model_cv_q2 <- train(PE ~ ., data = data_q2[, c(features_q2, target_q2)], 
                      method = "rpart", trControl = cv_q2)
@@ -68,16 +68,16 @@ actual_q2 <- testing_q2$PE
 comparison_q2 <- data.frame(Predicted = predictions_q2, Actual = actual_q2)
 
 # Step 9: Plot predicted vs. actual values
-#par(mfrow = c(1,2))
-#plot(comparison_q2$Actual, type = "l", col = "blue",
-#     ylim = range(c(comparison_q2$Predicted, comparison_q2$Actual)),
-#     xlab = "Observation", ylab = "PE", main = "Predicted vs. Actual PE")
-#lines(comparison_q2$Predicted, col = "red")
-#legend(x = 25, y =  2.2, legend = c("Actual", "Predicted"), col = c("blue", "red"), lty = 1)
+par(mfrow = c(1,2))
+plot(comparison_q2$Actual, type = "l", col = "blue",
+     ylim = range(c(comparison_q2$Predicted, comparison_q2$Actual)),
+     xlab = "Observation", ylab = "PE", main = "Predicted vs. Actual PE")
+lines(comparison_q2$Predicted, col = "red")
+legend(x = 25, y =  2.2, legend = c("Actual", "Predicted"), col = c("blue", "red"), lty = 1)
 
 # Step 10: Plot residuals
-#residuals_q2 <- comparison_q2$Actual - comparison_q2$Predicted
-#plot(residuals_q2, type = "p", col = "green", 
-#     xlab = "Observation", ylab = "Residuals", main = "Residuals Plot")
-#abline(h = 0, col = "red")
-#grid()
+residuals_q2 <- comparison_q2$Actual - comparison_q2$Predicted
+plot(residuals_q2, type = "p", col = "green", 
+     xlab = "Observation", ylab = "Residuals", main = "Residuals Plot")
+abline(h = 0, col = "red")
+grid()
