@@ -47,6 +47,7 @@ print("Cross-validated RMSE:")
 print(sqrt(model_cv_q3$results$RMSE))
 
 # Step 7: Plot the decision tree
+par(mfrow=c(1,1))
 library(rpart.plot)
 rpart.plot(model_q3, main = "Decision Tree for NAVGFPSPE Prediction")
 
@@ -65,12 +66,11 @@ plot(comparison_q3$Actual, type = "l", col = "blue",
      ylim = range(c(comparison_q3$Predicted, comparison_q3$Actual)),
      xlab = "Observation", ylab = "NAVGFPSPE", main = "Predicted vs. Actual NAVGFPSPE")
 lines(comparison_q3$Predicted, col = "red")
-legend("bottom", legend = c("Actual", "Predicted"), col = c("blue", "red"), lty = 1)
-grid()
+legend(x = 80, y = 0.2, legend = c("Actual", "Predicted"), col = c("blue", "red"), lty = 1)
 
 # Step 10: Plot residuals
 residuals_q3 <- comparison_q3$Actual - comparison_q3$Predicted
-plot(residuals_q3, type = "p", col = "green", 
+plot(residuals_q3, type = "p", col = "blue", 
      xlab = "Observation", ylab = "Residuals", main = "Residuals Plot")
 abline(h = 0, col = "red")
 grid()

@@ -81,25 +81,38 @@ The Residual Plot analysis reinforces the notion that the model is a good fit fo
 
 **Conclusion:** 
 
-Graphics `AG`: $0.6931757927$. This VarImp value indicates that Graphics has the highest importance among the three feature variables in predicting FPS. A VarImp value close to 1 suggests that changes in the Graphics feature have a significant impact on FPS predictions. Therefore, Graphics is considered the most influential variable in Model 1 for predicting FPS.
+Graphics (`AG`): With a VarImp value of $0.6931757927$, Graphics emerges as the dominant factor among the three feature variables in predicting FPS. Notably, Graphics exhibits overwhelming importance, constituting approximately $99.$% of the total importance across all features. This VarImp value close to 1 underscores the significant impact that changes in the Graphics feature have on FPS predictions. Therefore, Graphics is unequivocally identified as the most influential variable in Model 1 for predicting FPS.
 
-Physics `AP`: $0.0012707157$. The VarImp value for Physics is much lower compared to Graphics, indicating that Physics has much less influence on FPS predictions. A VarImp value close to 0 suggests that changes in the Physics feature have minimal impact on FPS predictions in comparison to Graphics.
+Physics (`AP`): Conversely, Physics yields a VarImp value of $0.0012707157$, representing a mere $0.18$% of the total feature importance. This substantially lower VarImp value indicates that Physics exerts minimal influence on FPS predictions compared to Graphics. Changes in the Physics feature have negligible impact on FPS predictions in comparison to Graphics.
 
-Audio `AA`: $0.0005060404$. Similarly, the VarImp value for Audio is also quite low compared to Graphics. This suggests that Audio has less influence on FPS predictions compared to Graphics and even less than Physics. 
+Audio (`AA`): Similarly, the VarImp value for Audio is $0.0005060404$, corresponding to a mere $0.07$% of the total feature importance. This minimal VarImp value suggests that Audio holds even less sway over FPS predictions compared to both Graphics and Physics. In essence, changes in the Audio feature have the least discernible impact on FPS predictions among the three variables.
 
-Based on these VarImp values, we can conclude that Graphics (`AG`) is the most influential variable on `AVGFPS`, followed by Physics (`AP`) and then Audio (`AA`).
+In summary, Graphics (`AG`) emerges as the overwhelmingly dominant variable in determining `AVGFPS`, commanding a staggering $99.74$% of the total feature importance. Physics (`AP`) follows with a modest $0.18$%, while Audio (`AA`) trails behind with a mere $0.07$%. These findings unequivocally highlight the paramount importance of Graphics in predicting FPS, positioning it as the primary focus for optimizing performance in Model 1.
+
 
 #### **Q2. Which of the technical variables (`AA`/`AG`/`AP`) have the most influence on `PE`?**
 
-Model: 
-
-![**Figure 4** Predictive Model for `PE`](dectree21.png)
 
 | Method | Value |
 | :---: | :---: |
 | RMSE | $0.9346277$ |
 | R-squared | $-0.06896572$ | 
 | Cross-validated RMSE | $0.9475976, 0.9475561, 0.9492149$ |
+
+**Table 3** Model Assessment
+
+![**Figure 3** Predictive Model for `PE`](dectree21.png)
+
+![**Figure 4** Further Model Assessment](dectree22.png)
+
+
+| Variable | Importance | % |
+| :---: | :---: | :---: |
+| `AG` | $0.38158180$ | $72.47$ |
+| `AA` | $0.08638892$ | $f$ |
+| `AP` | $0.05859870$ | $f$ |
+
+**Table 2** Outcome
 
 
 #### **Q3. What is the optimal combination of the technical variables (`AA`/`AG`/`AP`) to achieve optimal `NAVGFPSPE`?**
@@ -110,3 +123,9 @@ Model:
 |RMSE | $0.1761723$ |
 |R-squared | $0.2455282$ |
 |Cross-validated RMSE | $0.4121428, 0.4135205, 0.4293897$ |
+
+**Table 5** Model Assessment
+
+![**Figure 5** Predictive Model for `NAVGFPSPE`](dectree31.png)
+
+![**Figure 6** Further Model Assessment](dectree32.png)

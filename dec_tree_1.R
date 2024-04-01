@@ -71,7 +71,7 @@ comparison_q1 <- data.frame(Predicted = predictions_q1, Actual = actual_q1)
 par(mfrow = c(1,2))
 plot(comparison_q1$Actual, type = "l", col = "blue",
      ylim = range(c(comparison_q1$Predicted, comparison_q1$Actual)),
-     xlab = "Observation", ylab = "PE", main = "Predicted vs. Actual AVGFPS")
+     xlab = "Observation", ylab = "AVGFPS", main = "Predicted vs. Actual AVGFPS")
 lines(comparison_q1$Predicted, col = "red")
 legend(x = 120, y = 36, legend = c("Actual", "Predicted"), col = c("blue", "red"), lty = 1)
 
