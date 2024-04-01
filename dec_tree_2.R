@@ -77,7 +77,7 @@ legend(x = 25, y =  2.2, legend = c("Actual", "Predicted"), col = c("blue", "red
 
 # Step 10: Plot residuals
 residuals_q2 <- comparison_q2$Actual - comparison_q2$Predicted
-plot(residuals_q2, type = "p", col = "green", 
+plot(residuals_q2, type = "p", col = "blue", 
      xlab = "Observation", ylab = "Residuals", main = "Residuals Plot")
 abline(h = 0, col = "red")
 grid()
