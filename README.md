@@ -156,6 +156,12 @@ In summary, the model demonstrates moderate predictive performance, as indicated
 
 ![](dectree32.png)
 
+To further assess the robustness of Model 3, a visual examination of the Predicted vs Actual NAVGFPSPE Plot was conducted. Similar to Model 2, the correlation between predicted and actual values in the NAVGFPSPE plot is not significantly high. This can be attributed to the complex nature of predicting NAVGFPSPE, which involves multiple factors such as normalized audio (`NAA`), normalized graphics (`NAG`), and normalized physics (`NAP`). Despite this, there is still some alignment between the predicted and actual values, indicating a reasonable fit for the model.
+
+The Residual Plot analysis for Model 3 shows little difference compared to Model 2. While the residuals are still randomly distributed, there are fewer clusters around y=0 compared to Model 1. However, similar to Model 2, there are fewer outliers, suggesting a more consistent performance. Although Model 3 may not be the best predictive model, it demonstrates moderate predictive capability for NAVGFPSPE.
+
+In conclusion, Model 3 represents a good fit for predicting NAVGFPSPE, although it may not be as accurate as Model 1. The predictive performance of Model 3 is influenced by factors such as normalized audio, graphics, and physics, highlighting the complexity of predicting player experience in Unity. Given the limitations of the study and the moderate fit of Model 3, we proceed utilizing it for identifying the most influential variables affecting NAVGFPSPE.
+
 
 | Variable | Importance (VarImp) | Approx % |
 | :---: | :---: | :---: |
@@ -171,7 +177,7 @@ Normalized Audio (`NAA`): Following Normalized Graphics, Normalized Audio exhibi
 
 Normalized Physics (`NAP`): Lastly, Normalized Physics yields a VarImp value of $0.007733559$, constituting approximately $3.03$% of the total feature importance. While Normalized Physics contributes less to Normalized AVGFPS+PE predictions compared to Normalized Graphics and Normalized Audio, its importance is still noteworthy. Changes in the Normalized Physics feature moderately impact the combined outcome, albeit to a lesser degree than both Normalized Graphics and Normalized Audio.
 
-In summary, Normalized Graphics (`NAG`) emerges as the most influential variable in predicting Normalized AVGFPS+PE, commanding a substantial $80.22$% of the total feature importance. Normalized Audio (`NAA`) follows with a notable $16.76$%, while Normalized Physics (`NAP`) trails behind with $3.03$%. These findings highlight the significant role of Normalized Graphics in predicting Normalized AVGFPS+PE, underscoring its importance in optimizing performance in Model 1.
+In short, Normalized Graphics (`NAG`) emerges as the most influential variable in predicting Normalized AVGFPS+PE, commanding a substantial $80.22$% of the total feature importance. Normalized Audio (`NAA`) follows with a notable $16.76$%, while Normalized Physics (`NAP`) trails behind with $3.03$%. These findings highlight the significant role of Normalized Graphics in predicting Normalized AVGFPS+PE, underscoring its importance in optimizing performance in Model 1.
 
 ![](dectree33.png)
 
@@ -192,6 +198,22 @@ After determining that the model for predicting NAVGFPSPE is a good fit, further
 | 0.44 | 5 | 6 | 3, 2, 1 |
 | 0.41 | 1, 2, 3, ... | ... | ... |
 
+**Table 7** Findings of Optimal Combination Analysis
+
 These findings suggest that the most optimal combination (`COMB`) is 5, where `AA` is 2, `AG` is 1, and `AP` is 2. This is followed by `COMB` 4, where `AA` is 2, `AG` is 1, and `AP` is 1, and `COMB` 6, where `AA` is 2, `AG` is 1, and `AP` is 3. These results further highlight the importance of `AG` in the model, reinforcing its significant influence on optimizing performance.
 
 This additional analysis provides valuable insights into the relationship between technical variables and player experience, aiding in the optimization of resource allocation in Unity for enhanced player satisfaction and gaming performance.
+
+### **Primary Research Question Summary**
+
+**Q1. Which of the technical variables (`AA`/`AG`/`AP`) have the most influence on AVGFPS?**
+
+A1. Graphics (`AG`) emerges as the overwhelmingly dominant variable in determining `AVGFPS`, commanding a staggering $99.74$% of the total feature importance. Physics (`AP`) follows with a modest $0.18$%, while Audio (`AA`) trails behind with a mere $0.07$%.
+
+**Q2. Which of the technical variables (`AA`/`AG`/`AP`) have the most influence on PE?**
+
+A2. Graphics (`AG`) emerges as the most influential variable in determining PE, commanding a substantial $72.47$% of the total feature importance. Audio (`AA`) follows with a notable $16.41$%, while Physics (`AP`) trails behind with $11.13$%. 
+
+**Q3. What is the optimal combination of the technical variables (`AA`/`AG`/`AP`) to achieve optimal `NAVGFPSPE`?**
+
+A3. The most optimal combination (`COMB`) is 5, where `AA` is 2, `AG` is 1, and `AP` is 2. This is followed by `COMB` 4, where `AA` is 2, `AG` is 1, and `AP` is 1, and `COMB` 6, where `AA` is 2, `AG` is 1, and `AP` is 3.
