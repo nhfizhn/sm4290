@@ -136,6 +136,7 @@ In summary, Graphics (`AG`) emerges as the most influential variable in determin
 
 #### **Q3. What is the optimal combination of the technical variables (`AA`/`AG`/`AP`) to achieve optimal `NAVGFPSPE`?**
 
+![](dectree31.png)
 
 |Method | Value |
 | :---: | :---: |
@@ -152,9 +153,6 @@ In summary, Graphics (`AG`) emerges as the most influential variable in determin
 *Cross-validated RMSE*: The reported cross-validated RMSE values are $0.4121428$, $0.4135205$, and $0.4293897$, showing consistent performance across different subsets of the data.
 
 In summary, the model demonstrates moderate predictive performance, as indicated by the R-squared value. Furthermore, the consistency observed in the cross-validated RMSE values across different data subsets enhances confidence in the model's generalization capability.
-
-
-![](dectree31.png)
 
 ![](dectree32.png)
 
@@ -175,4 +173,25 @@ Normalized Physics (`NAP`): Lastly, Normalized Physics yields a VarImp value of 
 
 In summary, Normalized Graphics (`NAG`) emerges as the most influential variable in predicting Normalized AVGFPS+PE, commanding a substantial $80.22$% of the total feature importance. Normalized Audio (`NAA`) follows with a notable $16.76$%, while Normalized Physics (`NAP`) trails behind with $3.03$%. These findings highlight the significant role of Normalized Graphics in predicting Normalized AVGFPS+PE, underscoring its importance in optimizing performance in Model 1.
 
+![](dectree33.png)
 
+After determining that the model for predicting NAVGFPSPE is a good fit, further analysis was conducted to predict the optimal combination (`COMB`) based on `NAVGFPSPE` and `LEVEL`. The following table summarizes the findings:
+
+| NAVGFPSPE | LEVEL | COMB | AA, AG, AP |
+| :---: | :---: | :---: | :---: |
+| 0.73 | 17 | 5 | 2, 1, 2 |
+| 0.71 | 14 | 4 | 2, 1, 1 |
+| 0.71 | 15 | 6 | 2, 1, 3 |
+| 0.65 | 7 | 5 | 1, 1, 3 |
+| 0.63 | 20 | 7 | 3, 1, 3 |
+| 0.56 | 6 | 6 | 1, 2, 3 |
+| 0.52 | 16 | 7 | 2, 2, 3 |
+| 0.5 | 13 | 6 | 2, 2, 2 |
+| 0.49 | 23, 24, 25, 26, 27 | ... | ... |
+| 0.47 | 18 | 6 | 2, 3, 1 |
+| 0.44 | 5 | 6 | 3, 2, 1 |
+| 0.41 | 1, 2, 3, ... | ... | ... |
+
+These findings suggest that the most optimal combination (`COMB`) is 5, where `AA` is 2, `AG` is 1, and `AP` is 2. This is followed by `COMB` 4, where `AA` is 2, `AG` is 1, and `AP` is 1, and `COMB` 6, where `AA` is 2, `AG` is 1, and `AP` is 3. These results further highlight the importance of `AG` in the model, reinforcing its significant influence on optimizing performance.
+
+This additional analysis provides valuable insights into the relationship between technical variables and player experience, aiding in the optimization of resource allocation in Unity for enhanced player satisfaction and gaming performance.
