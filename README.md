@@ -111,7 +111,7 @@ Given the limitation of our study focusing solely on decision tree modeling tech
 
 ![](dectree22.png)
 
-To further validate the robustness of Model 2, a visual examination of the Predicted vs Actual PE Plot was conducted. Unlike the Predicted vs Actual AVGFPS plot, the correlation between predicted and actual values in the PE plot is not as high. This discrepancy can be attributed to the unpredictable nature of human behavior, leading to larger deviations between predicted and actual values for PE compared to AVGFPS. However, there is still some alignment between the predicted and actual values, although not as closely as observed in the first model.
+To further assess the robustness of Model 2, a visual examination of the Predicted vs Actual PE Plot was conducted. Unlike the Predicted vs Actual AVGFPS plot, the correlation between predicted and actual values in the PE plot is not as high. This discrepancy can be attributed to the unpredictable nature of human behavior, leading to larger deviations between predicted and actual values for PE compared to AVGFPS. However, there is still some alignment between the predicted and actual values, although not as closely as observed in the first model.
 
 The Residual Plot analysis for Model 2 indicates a less favorable scenario compared to Model 1. While the residuals are still randomly distributed, there are fewer clusters around y=0, indicating a less accurate prediction of PE values. Additionally, there are fewer outliers compared to Model 1, suggesting a more consistent performance, albeit with less accuracy.
 

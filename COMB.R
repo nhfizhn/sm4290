@@ -16,3 +16,5 @@ N_model <- rpart(NAVGFPSPE ~ LEVEL, data = data)
 rpart.plot(N_model, roundint = FALSE, fallen.leaves = TRUE, 
            main = "Decision Tree for COMB Prediction")
 mtext(expression(bold("Figure 7")~ "Predictive Model for Optimal Combination"), side = 1, line = 1)
+
+print(N_model)
