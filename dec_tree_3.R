@@ -50,6 +50,7 @@ print(sqrt(model_cv_q3$results$RMSE))
 par(mfrow=c(1,1))
 library(rpart.plot)
 rpart.plot(model_q3, main = "Decision Tree for NAVGFPSPE Prediction")
+mtext(expression(bold("Figure 5")~ "Predictive Model for Normalized AVGFPS+PE"), side = 1, line = 5)
 
 # Step 8: Interpretation (optional)
 print("Interpretation")
@@ -59,7 +60,7 @@ print("Variable Importance Analysis:")
 print(varImp(model_q3))
 
 # Step 9: Plot predicted vs. actual values
-par(mfrow = c(1,2))
+par(mfrow = c(1,2), mar = c(5,5,2,2), oma = c(2,0.1,2,0.1))
 actual_q3 <- testing_q3$NAVGFPSPE
 comparison_q3 <- data.frame(Predicted = predictions_q3, Actual = actual_q3)
 plot(comparison_q3$Actual, type = "l", col = "blue",
@@ -67,6 +68,7 @@ plot(comparison_q3$Actual, type = "l", col = "blue",
      xlab = "Observation", ylab = "NAVGFPSPE", main = "Predicted vs. Actual NAVGFPSPE")
 lines(comparison_q3$Predicted, col = "red")
 legend(x = 80, y = 0.2, legend = c("Actual", "Predicted"), col = c("blue", "red"), lty = 1)
+mtext(expression(bold("Figure 6")~ "Further Model Assessment"), side = 1, line = 0.1, outer = T)
 
 # Step 10: Plot residuals
 residuals_q3 <- comparison_q3$Actual - comparison_q3$Predicted
