@@ -71,7 +71,7 @@ To further validate the robustness of the model, a visual examination of the Pre
 The Residual Plot analysis reinforces the notion that the model is a good fit for the dataset. The random distribution of residuals, with the majority clustering around y = 0, underscores the model's accuracy in predicting AVGFPS values. While a few outliers exist, their limited presence does not detract significantly from the model's overall performance. As such, the Residual Plot provides further evidence of the model's suitability for addressing the research question with confidence.
 
 
-| Variable | Importance | Approx % |
+| Variable | Importance (VarImp) | Approx % |
 | :---: | :---: | :---: |
 | `AG` | $0.6931757927$ | $99.74$ |
 | `AP` | $0.0012707157$ | $0.18$ |
@@ -106,7 +106,7 @@ In summary, Graphics (`AG`) emerges as the overwhelmingly dominant variable in d
 ![](dectree22.png)
 
 
-| Variable | Importance | Approx % |
+| Variable | Importance (VarImp) | Approx % |
 | :---: | :---: | :---: |
 | `AG` | $0.38158180$ | $72.47$ |
 | `AA` | $0.08638892$ | $16.41$ |
@@ -131,7 +131,7 @@ In summary, Graphics (`AG`) emerges as the overwhelmingly dominant variable in d
 ![](dectree32.png)
 
 
-| Variable | Importance | Approx % |
+| Variable | Importance (VarImp) | Approx % |
 | :---: | :---: | :---: |
 | `NAG` | $0.204909381$ | $80.22$ |
 | `NAA` | $0.042800870$ | $16.76$ |
