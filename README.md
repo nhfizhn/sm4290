@@ -44,7 +44,7 @@ Provided below are the evaluation of these models along with the model descripti
 
 #### **Q1. Which of the technical variables (`AA`/`AG`/`AP`) have the most influence on `AVGFPS`?**
 
-![**Figure 1** Predictive Model for `AVGFPS`](dectree11.png)
+![](dectree11.png)
 
 | Method | Value |
 | :---: | :---: |
@@ -64,14 +64,14 @@ Before proceeding with utilizing the model to address the research question, I c
 
 In short, the model demonstrates moderate predictive performance, underscored by the R-squared value. Furthermore, the consistency observed in the cross-validated RMSE values across different data subsets enhances confidence in the model's generalization capability.
 
-![**Figure 2** Further Model Assessment](dectree12.png)
+![](dectree12.png)
 
 To further validate the robustness of the model, a visual examination of the Predicted vs Actual AVGFPS Plot was conducted. This plot shows the model's predicted average frames per second (AVGFPS) values against the actual AVGFPS values from the dataset. Its capacity to accurately predict AVGFPS values, as demonstrated by the close alignment between predicted and actual values, instills confidence in its reliability and robustness.
 
 The Residual Plot analysis reinforces the notion that the model is a good fit for the dataset. The random distribution of residuals, with the majority clustering around y = 0, underscores the model's accuracy in predicting AVGFPS values. While a few outliers exist, their limited presence does not detract significantly from the model's overall performance. As such, the Residual Plot provides further evidence of the model's suitability for addressing the research question with confidence.
 
 
-| Variable | Importance | % |
+| Variable | Importance | Approx % |
 | :---: | :---: | :---: |
 | `AG` | $0.6931757927$ | $99.74$ |
 | `AP` | $0.0012707157$ | $0.18$ |
@@ -81,7 +81,7 @@ The Residual Plot analysis reinforces the notion that the model is a good fit fo
 
 **Conclusion:** 
 
-Graphics (`AG`): With a VarImp value of $0.6931757927$, Graphics emerges as the dominant factor among the three feature variables in predicting FPS. Notably, Graphics exhibits overwhelming importance, constituting approximately $99.$% of the total importance across all features. This VarImp value close to 1 underscores the significant impact that changes in the Graphics feature have on FPS predictions. Therefore, Graphics is unequivocally identified as the most influential variable in Model 1 for predicting FPS.
+Graphics (`AG`): With a VarImp value of $0.6931757927$, Graphics emerges as the dominant factor among the three feature variables in predicting FPS. Notably, Graphics exhibits overwhelming importance, constituting approximately $99.74$% of the total importance across all features. This VarImp value close to 1 underscores the significant impact that changes in the Graphics feature have on FPS predictions. Therefore, Graphics is unequivocally identified as the most influential variable in Model 1 for predicting FPS.
 
 Physics (`AP`): Conversely, Physics yields a VarImp value of $0.0012707157$, representing a mere $0.18$% of the total feature importance. This substantially lower VarImp value indicates that Physics exerts minimal influence on FPS predictions compared to Graphics. Changes in the Physics feature have negligible impact on FPS predictions in comparison to Graphics.
 
@@ -101,18 +101,18 @@ In summary, Graphics (`AG`) emerges as the overwhelmingly dominant variable in d
 
 **Table 3** Model Assessment
 
-![**Figure 3** Predictive Model for `PE`](dectree21.png)
+![](dectree21.png)
 
-![**Figure 4** Further Model Assessment](dectree22.png)
+![](dectree22.png)
 
 
-| Variable | Importance | % |
+| Variable | Importance | Approx % |
 | :---: | :---: | :---: |
 | `AG` | $0.38158180$ | $72.47$ |
-| `AA` | $0.08638892$ | $f$ |
-| `AP` | $0.05859870$ | $f$ |
+| `AA` | $0.08638892$ | $16.41$ |
+| `AP` | $0.05859870$ | $11.13$ |
 
-**Table 2** Outcome
+**Table 4** Outcome
 
 
 #### **Q3. What is the optimal combination of the technical variables (`AA`/`AG`/`AP`) to achieve optimal `NAVGFPSPE`?**
@@ -126,6 +126,16 @@ In summary, Graphics (`AG`) emerges as the overwhelmingly dominant variable in d
 
 **Table 5** Model Assessment
 
-![**Figure 5** Predictive Model for `NAVGFPSPE`](dectree31.png)
+![](dectree31.png)
 
-![**Figure 6** Further Model Assessment](dectree32.png)
+![](dectree32.png)
+
+
+| Variable | Importance | Approx % |
+| :---: | :---: | :---: |
+| `NAG` | $0.204909381$ | $80.22$ |
+| `NAA` | $0.042800870$ | $16.76$ |
+| `NAP` | $0.007733559$ | $3.03$ |
+
+**Table 6** Outcome
+

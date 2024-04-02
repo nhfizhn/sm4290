@@ -53,6 +53,7 @@ library(rpart.plot)
 par(mfrow = c(1,1))
 rpart.plot(model_q2, digits = 3, roundint = FALSE, fallen.leaves = TRUE, 
            main = "Decision Tree for PE Prediction")
+mtext(expression(bold("Figure 3")~ "Predictive Model for Player Experience"), side = 1, line = 5)
 
 # Step 8: Interpretation (optional)
 print("Interpretation")
@@ -68,12 +69,14 @@ actual_q2 <- testing_q2$PE
 comparison_q2 <- data.frame(Predicted = predictions_q2, Actual = actual_q2)
 
 # Step 9: Plot predicted vs. actual values
-par(mfrow = c(1,2))
+par(mfrow = c(1,2), mar = c(5,5,2,2), oma = c(2,0.1,2,0.1))
 plot(comparison_q2$Actual, type = "l", col = "blue",
      ylim = range(c(comparison_q2$Predicted, comparison_q2$Actual)),
      xlab = "Observation", ylab = "PE", main = "Predicted vs. Actual PE")
 lines(comparison_q2$Predicted, col = "red")
 legend(x = 25, y =  2.2, legend = c("Actual", "Predicted"), col = c("blue", "red"), lty = 1)
+mtext(expression(bold("Figure 4")~ "Further Model Assessment"), side = 1, line = 0.1, outer = T)
+
 
 # Step 10: Plot residuals
 residuals_q2 <- comparison_q2$Actual - comparison_q2$Predicted

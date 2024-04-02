@@ -53,6 +53,7 @@ library(rpart.plot)
 par(mfrow = c(1,1))
 rpart.plot(model_q1, roundint = FALSE, fallen.leaves = TRUE, 
            main = "Decision Tree for AVGFPS Prediction")
+mtext(expression(bold("Figure 1")~ "Predictive Model for AVGFPS"), side = 1, line = 3.5)
 
 # Step 8: Interpretation (optional)
 print("Interpretation")
@@ -68,12 +69,13 @@ actual_q1 <- testing_q1$AVGFPS
 comparison_q1 <- data.frame(Predicted = predictions_q1, Actual = actual_q1)
 
 # Step 9: Plot predicted vs. actual values
-par(mfrow = c(1,2))
+par(mfrow = c(1,2), mar = c(5,5,2,2), oma = c(2,0.1,2,0.1))
 plot(comparison_q1$Actual, type = "l", col = "blue",
      ylim = range(c(comparison_q1$Predicted, comparison_q1$Actual)),
      xlab = "Observation", ylab = "AVGFPS", main = "Predicted vs. Actual AVGFPS")
 lines(comparison_q1$Predicted, col = "red")
 legend(x = 120, y = 36, legend = c("Actual", "Predicted"), col = c("blue", "red"), lty = 1)
+mtext(expression(bold("Figure 2")~ "Further Model Assessment"), side = 1, line = 0.1, outer = T)
 
 # Step 10: Plot residuals
 residuals_q1 <- comparison_q1$Actual - comparison_q1$Predicted
