@@ -1,25 +1,25 @@
 # Technical Resource Allocation in Unity: Optimizing Frame Rates and Player Experience
 
 ### Details of variables used
-Name | Variable | Type | Value
----  | ---      | ---  | ---
-Levels | `LEVEL` | Continuous (Integer) | $[1,27]$
-Actual Audio | `AA` | Categorical (Ordinal) | $[1,3]$
-Actual Graphics | `AG` | Categorical (Ordinal) | $[1,3]$
-Actual Physics | `AP` | Categorical (Ordinal) | $[1,3]$
-Audio Rating | `AR` | Categorical (Ordinal) | $[1,5]$
-Graphics Rating | `GR` | Categorical (Ordinal) | $[1,5]$
-Physics Rating | `PR` | Categorical (Ordinal) | $[1,5]$
-Enjoyment Rating | `ER` | Categorical (Ordinal) | $[1,5]$
-Comfort Rating | `CR` | Categorical (Ordinal) | $[1,5]$
-Overall Satisfaction Rating | `OR` | Continuous (Integer) | $[1,5]$
-Score | `SCORE` | Continuous (Integer) | $[0,1000]$
-Average FPS| `AVGFPS` | Continuous (Integer) | $[30,60]$
-Gaming Interest and Experience Rating | `GAMING` | Categorical (Ordinal) | $[1,5]$
-Participant Number | `PCP` | Continuous (Integer) | $[1,24]$
-Player Experience (weighted sum of all `_R`) | `PE` | Continuous (Decimal) | $[1,5]$
-Normalized data of `AA, AG, AP, AVGFPS, PE` | `NAA`, `NAG`, `NAP`, `NAVGFPS`, `NPE` | Continuous (Decimal) | $[0,1]$
-Normalized data of $0.5AVGFPS+0.5PE$ | `NAVGFPSPE` | Continuous (Decimal) | $[0,1]$
+|Name | Variable | Type | Value|
+|---  | ---      | ---  | ---|
+|Levels | `LEVEL` | Continuous (Integer) | $[1,27]$|
+|Actual Audio | `AA` | Categorical (Ordinal) | $[1,3]$|
+|Actual Graphics | `AG` | Categorical (Ordinal) | $[1,3]$|
+|Actual Physics | `AP` | Categorical (Ordinal) | $[1,3]$|
+|Audio Rating | `AR` | Categorical (Ordinal) | $[1,5]$|
+|Graphics Rating | `GR` | Categorical (Ordinal) | $[1,5]$|
+|Physics Rating | `PR` | Categorical (Ordinal) | $[1,5]$|
+|Enjoyment Rating | `ER` | Categorical (Ordinal) | $[1,5]$|
+|Comfort Rating | `CR` | Categorical (Ordinal) | $[1,5]$|
+|Overall Satisfaction Rating | `OR` | Continuous (Integer) | $[1,5]$|
+|Score | `SCORE` | Continuous (Integer) | $[0,1000]$|
+|Average FPS| `AVGFPS` | Continuous (Integer) | $[30,60]$|
+|Gaming Interest and Experience Rating | `GAMING` | Categorical (Ordinal) | $[1,5]$|
+|Participant Number | `PCP` | Continuous (Integer) | $[1,24]$|
+|Player Experience (weighted sum of all `_R`) | `PE` | Continuous (Decimal) | $[1,5]$|
+|Normalized data of `AA, AG, AP, AVGFPS, PE` | `NAA`, `NAG`, `NAP`, `NAVGFPS`, `NPE` | Continuous (Decimal) | $[0,1]$|
+|Normalized data of $0.5AVGFPS+0.5PE$ | `NAVGFPSPE` | Continuous (Decimal) | $[0,1]$|
 
 ### Primary Research Questions
 1. Which of the technical variables (`AA`/`AG`/`AP`) have the most influence on AVGFPS?
