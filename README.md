@@ -115,7 +115,7 @@ To further assess the robustness of Model 2, a visual examination of the Predict
 
 The Residual Plot analysis for Model 2 indicates a less favorable scenario compared to Model 1. While the residuals are still randomly distributed, there are fewer clusters around y=0, indicating a less accurate prediction of PE values. Additionally, there are fewer outliers compared to Model 1, suggesting a more consistent performance, albeit with less accuracy.
 
-In conclusion, Model 2 may not be the best predictive model in this case, primarily due to the unpredictable nature of human behavior affecting PE values. However, given the limitations of the paper and the alignment between the two models' plots to some extent, we will proceed with caution in utilizing Model 2 for prediction tasks.
+In conclusion, Model 2 may not be the best predictive model in this case, primarily due to the unpredictable nature of human behavior affecting PE values. However, given the limitations of the paper and the alignment between the two models' plots to some extent, we will proceed with caution in utilizing Model 2 for identifying the most influential variable.
 
 
 | Variable | Importance (VarImp) | Approx % |
